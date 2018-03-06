@@ -11,10 +11,10 @@ self.addEventListener('install', event => {
       // Cache main application resources
       let requests = [
         'index.html', 'restaurant.html', 'unavailable.html',
-        'img/restaurant-128.png',
-        'img/restaurant-256.png',
-        'img/restaurant.png',
-        'css/styles.css', 'css/styles.min.css',
+        'img/restaurant-128.png', 'img/restaurant-256.png', 'img/restaurant-512.png', 'img/restaurant.png',
+        'css/styles.common.css', 'css/styles.common.min.css',
+        'css/styles.index.css', 'css/styles.index.min.css',
+        'css/styles.restaurant.css', 'css/styles.restaurant.min.css',
         'js/idb.js', 'js/idb.min.js',
         'js/urlhelper.js', 'js/urlhelper.min.js',
         'js/dbhelper.js', 'js/dbhelper.min.js',
