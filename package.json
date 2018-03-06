@@ -1,8 +1,8 @@
 {
-  "name": "Restaurant-Reviews",
+  "name": "restaurant-reviews",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Restaurant Reviews Sails Application",
   "keywords": [],
   "dependencies": {
     "include-all": "^1.0.0",
@@ -10,16 +10,28 @@
     "sails": "^0.12.13",
     "sails-disk": "~0.10.9"
   },
-  "scripts": {
-    "debug": "node debug app.js",
-    "start": "node app.js"
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-copy": "^1.1.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-responsive": "^2.9.0",
+    "gulp-uglify-es": "^1.0.1",
+    "run-sequence": "^2.2.1"
   },
-  "main": "app.js",
+  "scripts": {
+    "server-api-debug": "node debug app.js",
+    "server-api-start": "node app.js",
+    "server-app-build": "gulp build",
+    "server-app-start": "http-server ./client/ -p 8000"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/brandy/Restaurant-Reviews.git"
+    "url": "https://github.com/panpan291265/mws-restaurant-stage-2.git"
   },
-  "author": "Brandy Lee Camacho",
-  "linkedIn": "https://www.linkedin.com/in/brandycamacho/",
-  "email": "brandy@udacity.com"
+  "author": "panpan291265",
+  "linkedIn": "https://www.linkedin.com/in/panpan-19651229/",
+  "email": "panpan291265@gmail.com"
 }
