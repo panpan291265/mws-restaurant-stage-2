@@ -1,23 +1,14 @@
-let restaurants,
-  neighborhoods,
-  cuisines
-var map
-var markers = []
+let restaurants = null,
+  neighborhoods = null,
+  cuisines = null;
+let map = null;
+let markers = [];
 
 /**
  * Initialize focus on window load.
  */
 window.addEventListener('load', (event) => {
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('serviceWorker.min.js')
-      .then(() => {
-        // console.log('Service worker registered successfully.');
-      })
-      .catch(err => {
-        console.error('Error registering service worker:', err);
-      })
-  }
-
+  registerServiceWorker();
   initalizeFocus();
 });
 
@@ -28,6 +19,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
 });
+
+/**
+ * Register service worker
+ */
+registerServiceWorker = () => {
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('serviceWorker.min.js')
+      .then(() => {
+        // console.log('Service worker registered successfully.');
+      })
+      .catch(err => {
+        console.error('Error registering service worker:', err);
+      })
+  }
+};
 
 /**
  * Initialize focus
@@ -122,6 +128,15 @@ updateRestaurants = () => {
   const neighborhood = nSelect[nIndex].value;
 
   DBHelper.fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, (error, restaurants) => {
+    // Cache all fetced restaurants sites preactivelly
+    if (!error && restaurants && restaurants.length > 0 &&
+      navigator.serviceWorker && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.controller.postMessage({
+        action: 'cacheRestaurantSites',
+        restaurants: restaurants
+      })
+    }
+
     const ul = document.getElementById('restaurants-list');
     ul.innerHTML = '';
     if (error) { // Got an error!
@@ -146,7 +161,8 @@ resetRestaurants = (restaurants) => {
   ul.innerHTML = '';
 
   // Remove all map markers
-  self.markers.forEach(m => m.setMap(null));
+  if (self.markers && self.markers.length > 0)
+    self.markers.forEach(m => m.setMap(null));
   self.markers = [];
   self.restaurants = restaurants;
 }

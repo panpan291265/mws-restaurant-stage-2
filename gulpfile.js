@@ -131,6 +131,11 @@ gulp.task('clean:js', function () {
 	return del(`${pathJs}/*.min.js`);
 });
 
+gulp.task('copy:js', function () {
+	return gulp.src(nodeModules + '/idb/lib/idb.js')
+		.pipe(gulp.dest(pathJs));
+});
+
 gulp.task('minify:js', function () {
 	return gulp.src([pathJs + '/*.js', !pathJs + '/*.min.js'])
         .pipe(minifyJs())
@@ -143,6 +148,7 @@ gulp.task('minify:js', function () {
 gulp.task('build:js', function () {
 	return runSequence(
         'clean:js',
+        'copy:js',
         'minify:js'
 	);
 });

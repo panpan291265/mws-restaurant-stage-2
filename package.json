@@ -5,6 +5,7 @@
   "description": "Restaurant Reviews Sails Application",
   "keywords": [],
   "dependencies": {
+    "idb": "^2.1.0",
     "include-all": "^1.0.0",
     "rc": "1.0.1",
     "sails": "^0.12.13",

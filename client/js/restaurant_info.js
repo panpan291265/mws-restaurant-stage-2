@@ -5,6 +5,14 @@ var map;
  * Initialize focus on window load.
  */
 window.addEventListener('load', (event) => {
+  registerServiceWorker();
+  initalizeFocus();
+});
+
+/**
+ * Register service worker
+ */
+registerServiceWorker = () => {
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('serviceWorker.min.js')
       .then(() => {
@@ -14,8 +22,7 @@ window.addEventListener('load', (event) => {
         console.error('Error registering service worker:', err);
       })
   }
-  initalizeFocus();
-});
+};
 
 /**
  * Initialize focus
