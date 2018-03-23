@@ -5,7 +5,7 @@
   "description": "Restaurant Reviews Sails Application",
   "keywords": [],
   "dependencies": {
-    "idb": "^2.1.0",
+    "idb": "^2.1.1",
     "include-all": "^1.0.0",
     "rc": "1.0.1",
     "sails": "^0.12.13",
@@ -14,8 +14,9 @@
   "devDependencies": {
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^3.9.3",
     "gulp-copy": "^1.1.0",
+    "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-responsive": "^2.9.0",

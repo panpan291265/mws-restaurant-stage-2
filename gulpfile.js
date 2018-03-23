@@ -3,6 +3,7 @@ const del = require('del');
 const copy = require('gulp-copy');
 const rename = require('gulp-rename');
 const imageMin = require('gulp-imagemin');
+const htmlMin = require('gulp-htmlmin');
 const responsive = require('gulp-responsive');
 const minifyCss = require('gulp-clean-css');
 const minifyJs = require('gulp-uglify-es').default;
@@ -10,6 +11,8 @@ const runSequence = require('run-sequence');
 const pathRoot = './client';
 const pathSourceImages = `${pathRoot}/img-src`;
 const pathDestImages = `${pathRoot}/img`;
+const pathSourceHtml = `${pathRoot}/html-src`;
+const pathDestHtml = `${pathRoot}`;
 const pathCss = `${pathRoot}/css`;
 const pathJs = `${pathRoot}/js`;
 const nodeModules = 'node_modules';
@@ -102,6 +105,26 @@ gulp.task('build:images', function () {
 });
 
 
+/* html */
+
+gulp.task('clean:html', function () {
+	return del(`${pathDestHtml}/*.html`);
+});
+
+gulp.task('minify:html', function () {
+	return gulp.src(`${pathSourceHtml}/*.html`)
+        .pipe(htmlMin({collapseWhitespace: true}))
+		.pipe(gulp.dest(pathDestHtml));
+});
+
+gulp.task('build:html', function () {
+	return runSequence(
+        'clean:html',
+        'minify:html'
+	);
+});
+
+
 /* css */
 
 gulp.task('clean:css', function () {
@@ -184,6 +207,7 @@ gulp.task('clean', function () {
         'clean:images',
         'clean:css',
         'clean:js',
+        'clean:html',
         'clean:serviceWorker'
 	);
 });
@@ -193,6 +217,7 @@ gulp.task('build', function () {
         'build:images',
         'build:css',
         'build:js',
+        'build:html',
         'build:serviceWorker'
 	);
 });
