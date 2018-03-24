@@ -1,18 +1,8 @@
-let restaurant;
-var map;
-
-/**
- * Initialize focus on window load.
- */
-window.addEventListener('load', (event) => {
-  registerServiceWorker();
-  initalizeFocus();
-});
-
 /**
  * Register service worker
  */
-registerServiceWorker = () => {
+/*
+(function registerServiceWorker() {
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('serviceWorker.min.js')
       .then(() => {
@@ -22,7 +12,15 @@ registerServiceWorker = () => {
         console.error('Error registering service worker:', err);
       })
   }
-};
+})();
+*/
+
+/**
+ * Initialize focus on window load.
+ */
+window.addEventListener('load', (event) => {
+  initalizeFocus();
+});
 
 /**
  * Initialize focus
@@ -36,7 +34,7 @@ initalizeFocus = () => {
 /**
  * Initialize Google map, called from HTML.
  */
-window.initMap = () => {
+window.initRestaurantMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
