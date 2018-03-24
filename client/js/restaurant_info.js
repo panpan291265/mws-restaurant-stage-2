@@ -1,7 +1,6 @@
 /**
  * Register service worker
  */
-/*
 (function registerServiceWorker() {
   if (navigator.serviceWorker) {
     navigator.serviceWorker.register('serviceWorker.min.js')
@@ -13,7 +12,6 @@
       })
   }
 })();
-*/
 
 /**
  * Initialize focus on window load.
