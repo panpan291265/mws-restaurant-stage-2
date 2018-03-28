@@ -122,6 +122,10 @@ nav h1 a {
 }
 
 #breadcrumb {
+  text-align: left;
+}
+
+#breadcrumb ol {
   list-style: none;
   background-color: transparent;
   margin: 0;
@@ -132,7 +136,7 @@ nav h1 a {
 
 /* Display list items side by side */
 
-#breadcrumb li {
+#breadcrumb ol li {
   display: inline;
   font-size: 0.8rem;
   color: #bbb;
@@ -140,22 +144,22 @@ nav h1 a {
 
 /* Add a slash symbol (/) before/behind each list item */
 
-#breadcrumb li+li:before {
-  padding: 3px;
+#breadcrumb ol li+li:before {
+  padding: 3px 1px 3px 5px;
   color: #eee;
   content: "/\00a0";
 }
 
 /* Add a color to all links inside the list */
 
-#breadcrumb li a {
+#breadcrumb ol li a {
   color: #eee;
   text-decoration: none;
 }
 
 /* Add a color on mouse-over */
 
-#breadcrumb li a:hover {
+#breadcrumb ol li a:hover {
   color: #fff;
   text-decoration: underline;
 }
@@ -175,7 +179,7 @@ nav h1 a {
     font-size: 1.3rem;
     letter-spacing: 3px;
   }
-  #breadcrumb li {
+  #breadcrumb ol li {
     font-size: 0.9rem;
   }
 }
@@ -185,7 +189,7 @@ nav h1 a {
     font-size: 1.5rem;
     letter-spacing: 5px;
   }
-  #breadcrumb li {
+  #breadcrumb ol li {
     font-size: 1.0rem;
   }
 }

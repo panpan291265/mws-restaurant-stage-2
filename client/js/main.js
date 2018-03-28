@@ -203,7 +203,7 @@ createRestaurantHTML = (restaurant) => {
   container2.className = 'container2';
   itemContainer.append(container2);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.className = 'restaurant-name';
   name.innerHTML = restaurant.name;
   name.setAttribute('tabindex', '0');

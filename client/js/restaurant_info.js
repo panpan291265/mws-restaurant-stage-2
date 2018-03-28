@@ -24,7 +24,7 @@ window.addEventListener('load', (event) => {
  * Initialize focus
  */
 initalizeFocus = () => {
-  const filterOptionsTitle = document.querySelector('#restaurant-container h1');
+  const filterOptionsTitle = document.querySelector('#restaurant-container h2');
   filterOptionsTitle.focus();
   filterOptionsTitle.setAttribute('tabIndex', '0');
 }
@@ -164,7 +164,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   title.setAttribute('tabIndex', '0');
   title.setAttribute('aria-label', `${self.restaurant.name} reviews`);
@@ -228,10 +228,10 @@ createReviewHTML = (review) => {
  * Add restaurant name to the breadcrumb navigation menu
  */
 fillBreadcrumb = (restaurant = self.restaurant) => {
-  const breadcrumb = document.getElementById('breadcrumb');
+  const breadcrumbList= document.querySelector('#breadcrumb ol');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
-  breadcrumb.appendChild(li);
+  breadcrumbList.appendChild(li);
 }
 
 /**
