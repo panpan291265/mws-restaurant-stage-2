@@ -187,16 +187,14 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.alt = `${restaurant.name} restaurant photograph`;
-  if (restaurant.photograph) {
-    image.src = DBHelper.imageUrlForRestaurant(restaurant);
-    image.setAttribute('srcset',
-      `${DBHelper.imageUrlForRestaurant(restaurant, '-200')} 200w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-300')} 300w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-400')} 400w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-500')} 500w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-600')} 600w`);
-    image.setAttribute('sizes', '(min-width: 600px) 200px');
-  }
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('srcset',
+    `${DBHelper.imageUrlForRestaurant(restaurant, '-200')} 200w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-300')} 300w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-400')} 400w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-500')} 500w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-600')} 600w`);
+  image.setAttribute('sizes', '(min-width: 600px) 200px');
   container1.append(image);
 
   const container2 = document.createElement('div');

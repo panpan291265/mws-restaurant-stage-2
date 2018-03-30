@@ -108,23 +108,21 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   image.alt = `${restaurant.name} restaurant photograph`;
-  if (restaurant.photograph) {
-    image.src = DBHelper.imageUrlForRestaurant(restaurant);
-    image.setAttribute('srcset',
-      `${DBHelper.imageUrlForRestaurant(restaurant, '-200')} 200w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-300')} 300w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-400')} 400w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-500')} 500w` +
-      `,${DBHelper.imageUrlForRestaurant(restaurant, '-600')} 600w`);
-    image.setAttribute('sizes',
-      '(min-width: 620px) 40vw' +
-      ',(min-width: 1024px) 47vw' +
-      ',(min-width: 1300px) 44vw' +
-      ',(min-width: 1400px) 42vw' +
-      ',(min-width: 1500px) 40vw' +
-      ',(min-width: 1600px) 38vw' +
-      ',100vw');
-  }
+  image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.setAttribute('srcset',
+    `${DBHelper.imageUrlForRestaurant(restaurant, '-200')} 200w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-300')} 300w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-400')} 400w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-500')} 500w` +
+    `,${DBHelper.imageUrlForRestaurant(restaurant, '-600')} 600w`);
+  image.setAttribute('sizes',
+    '(min-width: 620px) 40vw' +
+    ',(min-width: 1024px) 47vw' +
+    ',(min-width: 1300px) 44vw' +
+    ',(min-width: 1400px) 42vw' +
+    ',(min-width: 1500px) 40vw' +
+    ',(min-width: 1600px) 38vw' +
+    ',100vw');
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.setAttribute('tabIndex', '0');

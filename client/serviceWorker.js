@@ -23,13 +23,9 @@ self.addEventListener('install', event => {
       ];
 
       const dataImgSuffs = ['', '-200', '-300', '-400', '-500', '-600'];
-      for (let i = 1; i <= 10; i++) {
-        // Cache data images preactivelly
-        dataImgSuffs.forEach(imgSuffix => requests.push(`img/${i}${imgSuffix}.jpg`));
-
-        // Cache restaurant sites preactivelly
-        // requests.push(`restaurant.html?id=${i}`);
-      }
+      ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'image-not-found'].forEach(imageFileName => {
+        dataImgSuffs.forEach(imgSuffix => requests.push(`img/${imageFileName}${imgSuffix}.jpg`));
+      })
       return cache.addAll(requests).then(() => self.skipWaiting());
     })
     .catch(err => console.error(err))

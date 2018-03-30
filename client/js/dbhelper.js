@@ -216,7 +216,7 @@ class DBHelper {
   static imageUrlForRestaurant(restaurant, suffix = null) {
     let photoFileName = restaurant.photograph;
     if (!photoFileName)
-      return null;
+      photoFileName = 'image-not-found';
     if (!photoFileName.endsWith('.jpg'))
       photoFileName += '.jpg';
     if (suffix)
